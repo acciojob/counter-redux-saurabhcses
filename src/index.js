@@ -1,14 +1,12 @@
 import React from "react";
-import { createRoot } from "react-dom/client";
+import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
-import counterReducer from "./redux/reducer";
-import App from "./App";
+import { store } from "./components/redux/store";
+import App from "./components/App";
 
-const store = createStore(counterReducer);
-
-createRoot(document.getElementById("root")).render(
+ReactDOM.render(
   <Provider store={store}>
     <App />
-  </Provider>
+  </Provider>,
+  document.getElementById("root")
 );

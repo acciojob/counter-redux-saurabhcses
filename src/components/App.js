@@ -1,22 +1,22 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { increment, decrement } from "./redux/actions";
+import { increment, decrement } from "./redux/counterActions";
+import './../styles/App.css';
 
-export default function App() {
+const App = () => {
   const count = useSelector((state) => state.count);
   const dispatch = useDispatch();
 
   return (
-    <div>
+    <div className="app">
       <h1>{count}</h1>
-
-      <button id="increment" onClick={() => dispatch(increment())}>
-        Increment
-      </button>
-
-      <button id="decrement" onClick={() => dispatch(decrement())}>
-        Decrement
-      </button>
+      <div className="counter">
+        <button onClick={() => dispatch(decrement())}>decrement</button>
+        {/* <span>{count}</span> */}
+        <button onClick={() => dispatch(increment())}>increment</button>
+      </div>
     </div>
   );
-}
+};
+
+export default App;
